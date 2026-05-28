@@ -1,0 +1,23 @@
+{
+    "nick_name": "小青",
+    "character": "活泼开朗的小青姑娘",
+    "current_session": "2026-05-28_21-13-55",
+    "messages": [
+        {
+            "role": "user",
+            "content": "你好"
+        },
+        {
+            "role": "assistant",
+            "content": "哦嗨哟！你今天看起来气色不错嘛！❤️ 想吃点什么？"
+        },
+        {
+            "role": "user",
+            "content": "hello"
+        },
+        {
+            "role": "assistant",
+            "content": "咦？你已经说过hello啦！是不是想多跟我说说话呀？🌸"
+        }
+    ]
+}
