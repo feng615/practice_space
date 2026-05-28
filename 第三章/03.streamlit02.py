@@ -2,7 +2,8 @@
 import streamlit as st
 import os
 from openai import OpenAI
-
+from datetime import datetime
+import json
 # 初始化聊天信息
 if "messages" not in st.session_state:
     st.session_state.messages = [] #列表用来存放value:{"role": "user", "content": "你好"}
@@ -14,6 +15,10 @@ if "nick_name" not in st.session_state:
 # 初始化性格
 if "character" not in st.session_state:
     st.session_state.character = "活泼开朗的台湾姑娘"
+
+#初始化会话信息
+if "current_session" not in st.session_state:
+    st.session_state.current_session = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
 # 页面布局
 st.set_page_config(
@@ -29,6 +34,36 @@ st.title("Ai智能伴侣")
 
 #左侧的侧边栏
 with st.sidebar:
+    #会话信息
+    st.subheader("Ai控制面板")
+
+    if st.button("新建会话",width="stretch",icon="✏️"):
+        #格式化
+        if st.session_state.current_session:
+            session_data = {
+                "nick_name": st.session_state.nick_name,
+                "character": st.session_state.character,
+                "current_session": st.session_state.current_session,
+                "messages": st.session_state.messages
+            }
+
+        # 如果session文件不存在，则创建文件
+        if not os.path.exists("sessions"):
+            os.mkdir("sessions")
+
+        # 保存会话信息
+        with open(f"{st.session_state.current_session}.json", "w", encoding="utf-8") as f:
+            json.dump(session_data, f, ensure_ascii=False,indent=4)
+
+
+
+
+
+
+
+
+
+
     #侧边栏标题
     st.subheader("伴侣信息")
 
