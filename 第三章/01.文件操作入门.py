@@ -1,24 +1,17 @@
 # 文件操作入门
 
 #读文件
-
 # 打开文件
 file = open("resource/新建 文本文档.txt", "r", encoding="utf-8")
 
-
-
 #读取文件
 print(file.read())
-
-
 
 #关闭文件
 file.close()
 
 
-
 #创建一个文件
-
 # 打开文件
 file = open("resource/message.txt", "w", encoding="utf-8")
 # 写入文件
