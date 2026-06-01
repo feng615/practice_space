@@ -10,7 +10,7 @@ with open("resources/仙逆人物志.html", "r", encoding="utf-8") as file:
 
 # 获取HTML的文本数据
 doc = html.fromstring(html_text)
-
+#print("------>内存存储的id号：",doc)
 #解析表头
 headers = doc.xpath("//table/thead/tr/th/text()")
 #print("------>表头：",headers)
@@ -23,4 +23,4 @@ rows = doc.xpath("//table/tbody/tr[1]/td/text()")
 all_rows = doc.xpath("//table/tbody/tr")
 for row in all_rows:
     row_data = row.xpath("td/text()")
-    print("------>表中数据：",row_data)
+    #print("------>表中数据：",row_data)
